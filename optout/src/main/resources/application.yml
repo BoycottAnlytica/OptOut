@@ -1,0 +1,20 @@
+spring:
+  config:
+    import: optional:secrets.yml
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    defer-datasource-initialization: true
+logging:
+  level:
+    org:
+      springframework:
+        messaging: DEBUG
+        http : DEBUG
+      hibernate:
+        sql: DEBUG
