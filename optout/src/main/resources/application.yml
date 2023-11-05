@@ -7,14 +7,12 @@ spring:
     password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: false
     defer-datasource-initialization: true
 logging:
   level:
     org:
       springframework:
-        messaging: DEBUG
-        http : DEBUG
       hibernate:
-        sql: DEBUG
+        sql: INFO
