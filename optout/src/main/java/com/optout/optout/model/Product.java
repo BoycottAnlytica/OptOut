@@ -1,6 +1,6 @@
-package com.optout.optout.halal;
+package com.optout.optout.model;
 
-import com.optout.optout.stance.Company;
+import com.optout.optout.model.Company;
 import jakarta.persistence.*;
 import lombok.Getter;
 
