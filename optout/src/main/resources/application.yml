@@ -14,7 +14,11 @@ logging:
   level:
     org:
       springframework:
-        messaging: DEBUG
-        http : DEBUG
+        messaging: debug
+        http : debug
       hibernate:
-        sql: DEBUG
+        sql: debug
+        type:
+          descriptor:
+            BasicBinder: trace
+    web: debug
