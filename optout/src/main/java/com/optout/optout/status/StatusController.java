@@ -1,6 +1,5 @@
 package com.optout.optout.status;
 
-import com.optout.optout.product.Product;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.OK;
