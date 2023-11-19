@@ -10,8 +10,8 @@ public class StatusController {
 
     @ResponseStatus(OK)
     @GetMapping
-    public String getStatus(){
-        return "UP AND RUNNING";
+    public Status getStatus(){
+        return new Status("UP AND RUNNING");
     }
 
 }
