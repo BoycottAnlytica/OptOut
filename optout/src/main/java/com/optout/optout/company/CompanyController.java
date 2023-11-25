@@ -17,7 +17,7 @@ public class CompanyController {
 
     @GetMapping("{companyId}")
     @ResponseStatus(OK)
-    public Company getCompany(@PathVariable long companyId){
+    public Company getCompany(@PathVariable String companyId){
         return companyService.getCompanyById(companyId);
     }
 
@@ -29,7 +29,7 @@ public class CompanyController {
 
     @PostMapping("{companyId}")
     @ResponseStatus(CREATED)
-    public Product addProductToCompany(@PathVariable long companyId, @RequestBody ProductRequest product){
+    public Product addProductToCompany(@PathVariable String companyId, @RequestBody ProductRequest product){
         return companyService.addProductToCompany(companyId, product);
     }
 }

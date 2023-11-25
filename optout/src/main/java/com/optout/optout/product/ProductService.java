@@ -9,7 +9,7 @@ public class ProductService {
 
     private final JPAProductRepository productRepository;
 
-    public Product getProductById(long productId) {
+    public Product getProductById(String productId) {
         return productRepository.findById(productId)
                 .orElseThrow();
     }
