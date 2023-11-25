@@ -15,7 +15,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private String Id;
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
