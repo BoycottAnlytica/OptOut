@@ -13,7 +13,7 @@ public class CompanyService {
     private final JPACompanyRepository companyRepository;
     private final JPAProductRepository productRepository;
 
-    public Company getCompanyById(long companyId) {
+    public Company getCompanyById(String companyId) {
         return companyRepository.findById(companyId)
                 .orElseThrow();
     }
@@ -23,7 +23,7 @@ public class CompanyService {
         return companyRepository.save(companyToAdd);
     }
 
-    public Product addProductToCompany(long companyId, ProductRequest product) {
+    public Product addProductToCompany(String companyId, ProductRequest product) {
         var productToAdd = new Product(product);
         return companyRepository.findById(companyId)
                 .map(productToAdd::setCompany)

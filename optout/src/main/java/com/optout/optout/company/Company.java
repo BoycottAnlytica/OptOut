@@ -18,9 +18,9 @@ import static com.optout.optout.company.Company.Stance.UNKNOWN;
 public class Company {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private long id;
+    private String id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
