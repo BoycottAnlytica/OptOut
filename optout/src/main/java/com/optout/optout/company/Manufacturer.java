@@ -15,7 +15,7 @@ import static com.optout.optout.company.Company.Stance.UNKNOWN;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Company {
+public class Manufacturer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
