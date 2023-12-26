@@ -22,3 +22,9 @@ logging:
           descriptor:
             BasicBinder: trace
     web: debug
+
+external:
+  api:
+    upc:
+      url: https://api.upcdatabase.org/product/
+      key: ${UPC_DATABASE_API_KEY_IBRAHIM}
