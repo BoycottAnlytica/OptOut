@@ -30,10 +30,4 @@ public class Product {
         this.name = product.name();
         this.barcode = product.barcode();
     }
-
-    public Product setCompany(Company company){
-        this.company = company;
-        return this;
-    }
-
 }
