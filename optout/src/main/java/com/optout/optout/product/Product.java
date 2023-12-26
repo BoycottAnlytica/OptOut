@@ -15,6 +15,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter
     @Column(nullable = false)
     private String id;
 
