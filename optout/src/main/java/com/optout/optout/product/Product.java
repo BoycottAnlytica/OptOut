@@ -22,6 +22,7 @@ public class Product {
     @JoinColumn(name = "company_id")
     @JsonIgnoreProperties(value = "product")
     private Manufacturer manufacturer;
+    private String brand;
     private String name;
     @Column(nullable = false)
     private String barcode;
