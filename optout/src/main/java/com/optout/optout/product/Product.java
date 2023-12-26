@@ -21,7 +21,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "company_id")
     @JsonIgnoreProperties(value = "product")
-    private Company company;
+    private Manufacturer manufacturer;
     private String name;
     @Column(nullable = false)
     private String barcode;
