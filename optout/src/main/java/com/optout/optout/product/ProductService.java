@@ -13,11 +13,6 @@ public class ProductService {
     private String BearerToken;
     private final JPAProductRepository productRepository;
 
-//    public Product getProductById(String productId) {
-//        return productRepository.findById(productId)
-//                .orElseThrow();
-//    }
-
     public Product getProductById(String productId) {
         return productRepository.findById(productId)
                 .orElse(upcApi.getProductByBarcode(productId));
