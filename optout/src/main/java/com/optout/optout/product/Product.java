@@ -23,7 +23,7 @@ public class Product {
     private String barcode;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "manufacturer_id")
     @JsonIgnoreProperties(value = "product")
     private Manufacturer manufacturer;
     private String brand;
