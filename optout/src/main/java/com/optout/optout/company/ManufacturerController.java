@@ -9,27 +9,27 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
-@RequestMapping("api/v1/companys")
+@RequestMapping("api/v1/manufacturers")
 @RequiredArgsConstructor
 public class ManufacturerController {
 
     private final ManufacturerService manufacturerService;
 
-    @GetMapping("{companyId}")
+    @GetMapping("{manufacturerId}")
     @ResponseStatus(OK)
-    public Manufacturer getCompany(@PathVariable String companyId){
-        return manufacturerService.getCompanyById(companyId);
+    public Manufacturer getCompany(@PathVariable String manufacturerId){
+        return manufacturerService.getManufacturerById(manufacturerId);
     }
 
     @PostMapping
     @ResponseStatus(CREATED)
     public Manufacturer createCompany(@RequestBody ManufacturerRequest company){
-        return manufacturerService.addCompany(company);
+        return manufacturerService.createManufacturer(company);
     }
 
-    @PostMapping("{companyId}")
+    @PostMapping("{manufacturerId}")
     @ResponseStatus(CREATED)
-    public Product addProductToCompany(@PathVariable String companyId, @RequestBody ProductRequest product){
-        return manufacturerService.addProductToManufacturer(companyId, product);
+    public Product addProductToCompany(@PathVariable String manufacturerId, @RequestBody ProductRequest product){
+        return manufacturerService.addProductToManufacturer(manufacturerId, product);
     }
 }
