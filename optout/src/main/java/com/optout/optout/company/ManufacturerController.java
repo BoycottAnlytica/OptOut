@@ -11,25 +11,25 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequestMapping("api/v1/companys")
 @RequiredArgsConstructor
-public class CompanyController {
+public class ManufacturerController {
 
-    private final CompanyService companyService;
+    private final ManufacturerService manufacturerService;
 
     @GetMapping("{companyId}")
     @ResponseStatus(OK)
-    public Company getCompany(@PathVariable String companyId){
-        return companyService.getCompanyById(companyId);
+    public Manufacturer getCompany(@PathVariable String companyId){
+        return manufacturerService.getCompanyById(companyId);
     }
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public Company createCompany(@RequestBody CompanyRequest company){
-        return companyService.addCompany(company);
+    public Manufacturer createCompany(@RequestBody ManufacturerRequest company){
+        return manufacturerService.addCompany(company);
     }
 
     @PostMapping("{companyId}")
     @ResponseStatus(CREATED)
     public Product addProductToCompany(@PathVariable String companyId, @RequestBody ProductRequest product){
-        return companyService.addProductToCompany(companyId, product);
+        return manufacturerService.addProductToManufacturer(companyId, product);
     }
 }
