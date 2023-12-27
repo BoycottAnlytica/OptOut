@@ -14,8 +14,8 @@ public class ProductController {
 
     @GetMapping("{productId}")
     @ResponseStatus(OK)
-    public String getProduct(@PathVariable String productId){
-        return productService.getProductById(productId);
+    public Product getProduct(@PathVariable String productId){
+        return productService.getProductByBarcode(productId);
     }
 
 
