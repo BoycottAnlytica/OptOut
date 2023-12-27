@@ -1,20 +1,25 @@
 package com.optout.optout.product;
 
+import com.optout.optout.external.api.upc.UpcApi;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.http.parser.Authorization;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.function.Supplier;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
     private final JPAProductRepository productRepository;
+    private final UpcApi upcApi;
 
-    public Product getProductById(String productId) {
-        return productRepository.findById(productId)
-                .orElse(upcApi.getProductByBarcode(productId));
+    public Product getProductByBarcode(String productBarcode) {
+        return productRepository.findByBarcode(productBarcode)
+                .orElseGet(upcProductSupplier(productBarcode));
+    }
+
+    private Supplier<Product> upcProductSupplier(String productBarcode) {
+        return () -> (upcApi.getProductByBarcode(productBarcode));
     }
 
 }
