@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.optout.optout.company.Company.Stance.UNKNOWN;
-
-
 @NoArgsConstructor
 @Getter
 @Entity
@@ -30,12 +27,6 @@ public class Manufacturer {
 
     public Manufacturer(ManufacturerRequest company) {
         this.name = company.name();
-    }
-
-    public enum Stance {
-        PRO_PALESTINE,
-        UNKNOWN,
-        ANTI_PALESTINE
     }
 
     public void addProduct(Product product){
