@@ -17,11 +17,12 @@ public class ProductAdapter {
     private final ManufacturerService manufacturerService;
 
     public Product convertToProduct(UpcResponse upcResponse) {
-        Product product = new Product();
+        var product = Product.builder()
+                .barcode(upcResponse.barcode())
+                .brand(upcResponse.brand())
+                .name(upcResponse.title())
+                .build();
         setValidatedManufacturer(product, upcResponse);
-        product.setBrand(upcResponse.brand());
-        product.setName(upcResponse.title());
-        product.setBarcode(upcResponse.barcode());
         return product;
     }
 
