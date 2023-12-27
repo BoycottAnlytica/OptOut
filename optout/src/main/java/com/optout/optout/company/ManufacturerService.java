@@ -13,9 +13,14 @@ public class ManufacturerService {
     private final JPAManufacturerRepository manufacturerRepository;
     private final JPAProductRepository productRepository;
 
-    public Manufacturer getCompanyById(String manufacturerId) {
+    public Manufacturer getManufacturerById(String manufacturerId) {
         return manufacturerRepository.findById(manufacturerId)
                 .orElseThrow();
+    }
+
+    public Manufacturer getManufacturerByName(String manufacturerName) {
+        return manufacturerRepository.findByName(manufacturerName)
+                .orElse(createManufacturer(new ManufacturerRequest(manufacturerName)));
     }
 
     public Manufacturer createManufacturer(ManufacturerRequest company) {
