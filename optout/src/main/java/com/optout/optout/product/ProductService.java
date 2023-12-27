@@ -23,6 +23,4 @@ public class ProductService {
                 .orElse(upcApi.getProductByBarcode(productId));
     }
 
-
-
 }
