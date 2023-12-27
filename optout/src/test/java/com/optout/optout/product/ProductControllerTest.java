@@ -35,7 +35,7 @@ class ProductControllerTest {
         Manufacturer company2 = new Manufacturer();
         Product product3 = new Product();
         product3.setManufacturer(company2);
-        when(productService.getProductById(anyString())).thenReturn(product3);
+        when(productService.getProductByBarcode(anyString())).thenReturn(product3);
         MockHttpServletRequestBuilder requestBuilder =
                 MockMvcRequestBuilders.get("/api/v1/products/{productId}", 1L);
         MockMvcBuilders.standaloneSetup(productController)
