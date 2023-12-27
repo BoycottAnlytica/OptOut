@@ -24,12 +24,11 @@ public class Manufacturer {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private final Stance stance = UNKNOWN;
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = "company")
+    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "manufacturer")
     private final List<Product> product = new ArrayList<>();
 
-    public Company(CompanyRequest company) {
+    public Manufacturer(ManufacturerRequest company) {
         this.name = company.name();
     }
 
