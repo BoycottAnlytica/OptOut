@@ -1,38 +1,36 @@
 package com.optout.optout.product;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.optout.optout.company.Company;
+import com.optout.optout.company.Manufacturer;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+
 
 @Getter
+@Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
-    private String id;
-
-    @ManyToOne
-    @JoinColumn(name = "company_id")
-    @JsonIgnoreProperties(value = "product")
-    private Company company;
-    private String name;
     @Column(nullable = false)
     private String barcode;
+
+    @ManyToOne
+    @JoinColumn(name = "manufacturer_id")
+    @JsonIgnoreProperties(value = "product")
+    private Manufacturer manufacturer;
+    private String brand;
+    private String name;
 
     public Product(ProductRequest product) {
         this.name = product.name();
         this.barcode = product.barcode();
     }
-
-    public Product setCompany(Company company){
-        this.company = company;
-        return this;
-    }
-
 }

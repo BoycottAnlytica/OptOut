@@ -7,18 +7,23 @@ spring:
     password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: false
     defer-datasource-initialization: true
 logging:
   level:
     org:
       springframework:
-        messaging: debug
         http : debug
       hibernate:
-        sql: debug
+        SQL: debug
         type:
           descriptor:
             BasicBinder: trace
     web: debug
+
+external:
+  api:
+    upc:
+      url: https://api.upcdatabase.org/product/
+      key: ${UPC_DATABASE_API_KEY_IBRAHIM}
