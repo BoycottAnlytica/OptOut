@@ -27,9 +27,9 @@ public class ProductAdapter {
     }
 
     private void setValidatedManufacturer(Product product, UpcResponse upcResponse) {
-        String manufacturerName = upcResponse.manufacturer();
-        Manufacturer manufacturer = manufacturerService.getManufacturerByName(manufacturerName);
-        product.setManufacturer(Objects.requireNonNullElseGet(manufacturer, () -> new Manufacturer(new ManufacturerRequest("N/A"))));
+        Manufacturer manufacturer = manufacturerService.getManufacturerByName(upcResponse.manufacturer());
+        product.setManufacturer(Objects.requireNonNullElseGet(manufacturer,
+                () -> new Manufacturer(new ManufacturerRequest("N/A"))));
     }
 
 }
