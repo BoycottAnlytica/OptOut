@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Entity
+@Table(indexes = @Index(columnList = "name"))
 public class Manufacturer {
 
     @Id
