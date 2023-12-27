@@ -9,8 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-    @Value("${UPC_DATABASE_DEMO}")
-    private String BearerToken;
+
     private final JPAProductRepository productRepository;
 
     public Product getProductById(String productId) {
