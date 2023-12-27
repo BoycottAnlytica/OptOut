@@ -17,7 +17,7 @@ public class Manufacturer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private String id;
+    private long id;
     @Column(nullable = false)
     private String name;
     @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
