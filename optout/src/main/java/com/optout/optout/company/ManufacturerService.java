@@ -18,7 +18,7 @@ public class ManufacturerService {
                 .orElseThrow();
     }
 
-    public Manufacturer addCompany(ManufacturerRequest company) {
+    public Manufacturer createManufacturer(ManufacturerRequest company) {
         var  manufacturerToAdd = new Manufacturer(company);
         return manufacturerRepository.save(manufacturerToAdd);
     }
