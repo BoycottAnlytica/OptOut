@@ -20,7 +20,6 @@ public class Manufacturer {
     private String id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
     @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = "manufacturer")
     private final List<Product> product = new ArrayList<>();
