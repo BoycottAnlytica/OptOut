@@ -18,23 +18,9 @@ public class ProductService {
 //                .orElseThrow();
 //    }
 
-    public String getProductById(String productId) {
-        return getExternalProduct(productId);
-    }
-
-    private String getExternalProduct(String productId){
-        String url = "https://api.upcdatabase.org/product/"+productId;
-        WebClient.Builder builder= WebClient.builder();
-        String product= builder.build()
-                .get()
-                .uri(url)
-                .header("Authorization", "Bearer " +BearerToken)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-        System.out.println(product);
-        return product;
-
+    public Product getProductById(String productId) {
+        return productRepository.findById(productId)
+                .orElse(upcApi.getProductByBarcode(productId));
     }
 
 
