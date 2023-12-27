@@ -14,10 +14,8 @@ import lombok.Setter;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter
     @Column(nullable = false)
-    private String id;
+    private String barcode;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -25,8 +23,6 @@ public class Product {
     private Manufacturer manufacturer;
     private String brand;
     private String name;
-    @Column(nullable = false)
-    private String barcode;
 
     public Product(ProductRequest product) {
         this.name = product.name();
