@@ -1,12 +1,6 @@
 name: Run Integration Tests
 
-on:
-  pull_request:
-    branches:
-      - '*'
-  push:
-    branches:
-      - '*'
+on: push
 
 jobs:
   test:
